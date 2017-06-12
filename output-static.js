@@ -35,9 +35,10 @@ Promise.all([
   let problem_arr = {};
   problems.forEach((p) => {
     let mat = p.title.match(/(.+) - (.+)/);
-    if (!mat) return;
-    p.ta = mat[1];
-    p.title = mat[2].trim();
+    if (mat) {
+      p.ta = mat[1];
+      p.title = mat[2].trim();
+    }
     p.user_accepted = 0;
     p.user_tried = 0;
     problem_arr[p.pid] = p;
@@ -91,7 +92,7 @@ Promise.all([
     };
   });
 
-  problems.sort((a, b) => b.user_accepted - a.user_accepted);
+  problems.sort((a, b) => (b.user_accepted - a.user_accepted) || (a.user_tried - b.user_tried));
   templateContext.problems = JSON.stringify(problems);
   templateContext.data = JSON.stringify(users);
 
