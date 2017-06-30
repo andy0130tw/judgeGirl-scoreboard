@@ -1,0 +1,231 @@
+body {
+    font-family: 'Open Sans', 'Lato', sans-serif;
+}
+
+h1 {
+    font-family: Cantarell, sans-serif;
+}
+
+#ribbon {
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+}
+
+#overlay {
+    /* beautiful new display */
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: .5rem 256px 2rem 32px;
+
+    background-color: rgba(255, 255, 255, .95);
+    /* XXX: should use a gradient instead */
+    box-shadow: 0 -2rem 3rem rgba(255, 255, 255, .95);
+}
+
+#helper {
+    position: absolute;
+    right: 0;
+    padding-right: 32px;
+    bottom: 2rem;
+    z-index: 1024;
+}
+
+#mainTable_info {
+    line-height: 3.6;
+}
+
+#mainTable,
+#mainTable_wrapper .DTFC_LeftBodyLiner .DTFC_Cloned {
+    padding-bottom: 12rem !important;
+}
+
+/************ seamless ************/
+
+table.dataTable.dataTable {
+    margin-top: 0px !important;
+}
+
+/************ table cells ************/
+
+td.cell-rank {
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+td.cell-score {
+    font-weight: 700;
+    font-size: 1.8rem;
+    font-family: 'Source Code Pro', 'Inconsolata', 'Consolas', monospace;
+}
+
+th.cell-prob, td.cell-prob {
+    width: 6rem !important;
+    max-width: 6rem !important;
+    min-width: 6rem !important;
+}
+
+th.cell-prob {
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+td.cell-prob {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+td.cell-trial {
+    white-space: nowrap;
+}
+
+/************ table cells - background ************/
+
+td.cell-ac {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+td.cell-wa {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+}
+
+td.cell-tle {
+    background-color: #bbdefb;
+    color: #0d47a1;
+}
+
+td.cell-re {
+    background-color: #f3e5f5;
+    color: #4a148c;
+}
+
+td.cell-ole, td.cell-mle {
+    background-color: #cfd8dc;
+}
+
+/************ table sorting display ************/
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    padding-bottom: 4rem;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    background-color: #e8eaf6;
+}
+
+table.dataTable thead .cell-prob.sorting_asc::after,
+table.dataTable thead .cell-prob.sorting_desc::after {
+    content: '';
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.text-status-na {
+    color: #ccc;
+}
+
+/************ fix conflicts with for DTFC ************/
+
+.DTFC_LeftBodyWrapper {
+    border-right: 1px dashed #aaa;
+}
+
+.DTFC_LeftHeadWrapper {
+    z-index: 10;
+}
+
+.sorting_1 {
+    background: #f0f0f0;
+}
+
+
+/************ table headers ************/
+
+/* display team id as overlay; only at the top */
+#mainTable .text-prob-team-id { display: none; }
+
+.dataTable td {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.dataTable .text-prob-team-id {
+    color: #cfd8dc;
+    display: block;
+    position: absolute;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 3em;
+    top: 0;
+}
+
+.text-prob-title {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+}
+
+.text-prob-stat {
+    font-size: 1.2rem;
+    color: #555;
+    display: block;
+    text-align: right;
+}
+
+.text-prob-stat .ac {
+    color: #009688;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        /*margin-top: 2em;*/
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 8px;
+    }
+    #overlay {
+        padding-right: 32px;
+        padding-bottom: 12rem;
+    }
+    #overlay h1 {
+        font-size: 3rem;
+    }
+    #ribbon {
+        transform: scale(0.75);
+        transform-origin: top right;
+    }
+
+    td.cell-user {
+        font-size: 1.4rem;
+    }
+
+    table.dataTable thead th,
+    table.dataTable thead .sorting,
+    table.dataTable thead .sorting_asc,
+    table.dataTable thead .sorting_desc,
+    table.dataTable tbody td {
+        /* to be more compact */
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+
+    #mainTable,
+    #mainTable_wrapper .DTFC_LeftBodyLiner .DTFC_Cloned {
+        padding-bottom: 24rem !important;
+    }
+}
